@@ -1,0 +1,297 @@
+<mxfile host="app.diagrams.net" agent="script E08R">
+  <diagram id="componentes-mvc" name="1 - Componentes (MVC)">
+    <mxGraphModel dx="2264" dy="1048" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1060" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="api" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fafafa;strokeColor=#333333;fontSize=12;rounded=1;arcSize=3;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="770" width="1560" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="canais" parent="1" style="whiteSpace=wrap;html=0;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;rounded=1;arcSize=6;fontStyle=1;" value="Canais: app · totem · balcão · painel de gestão" vertex="1">
+          <mxGeometry height="60" width="420" x="760" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="b_ctrl" parent="1" style="whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#999999;fontSize=12;rounded=1;arcSize=3;" value="" vertex="1">
+          <mxGeometry height="120" width="1210" x="370" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="b_svc" parent="1" style="whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#999999;fontSize=12;rounded=1;arcSize=3;" value="" vertex="1">
+          <mxGeometry height="130" width="1210" x="370" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="b_mdl" parent="1" style="whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#999999;fontSize=12;rounded=1;arcSize=3;" value="" vertex="1">
+          <mxGeometry height="290" width="1210" x="370" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="c0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;rounded=1;arcSize=6;fontFamily=Courier New;" value="acesso.py" vertex="1">
+          <mxGeometry height="62" width="126" x="495" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="AcessoService" vertex="1">
+          <mxGeometry height="66" width="126" x="495" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="m0_0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="usuario" vertex="1">
+          <mxGeometry height="32" width="126" x="495" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;rounded=1;arcSize=6;fontFamily=Courier New;" value="unidades.py" vertex="1">
+          <mxGeometry height="62" width="126" x="631" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="UnidadeService" vertex="1">
+          <mxGeometry height="66" width="126" x="631" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="m1_0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="unidade" vertex="1">
+          <mxGeometry height="32" width="126" x="631" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="m1_1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="produto" vertex="1">
+          <mxGeometry height="32" width="126" x="631" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="m1_2" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="item_cardapio" vertex="1">
+          <mxGeometry height="32" width="126" x="631" y="706" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;rounded=1;arcSize=6;fontFamily=Courier New;" value="estoque.py" vertex="1">
+          <mxGeometry height="62" width="126" x="767" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="EstoqueService" vertex="1">
+          <mxGeometry height="66" width="126" x="767" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="m2_0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="estoque" vertex="1">
+          <mxGeometry height="32" width="126" x="767" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;rounded=1;arcSize=6;fontFamily=Courier New;" value="pedidos.py" vertex="1">
+          <mxGeometry height="62" width="126" x="903" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="PedidoService" vertex="1">
+          <mxGeometry height="66" width="126" x="903" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="m3_0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="pedido" vertex="1">
+          <mxGeometry height="32" width="126" x="903" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="m3_1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="item_pedido" vertex="1">
+          <mxGeometry height="32" width="126" x="903" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="m3_2" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="historico_status_&#xa;pedido" vertex="1">
+          <mxGeometry height="38" width="126" x="903" y="706" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;rounded=1;arcSize=6;fontFamily=Courier New;" value="pagamentos.py" vertex="1">
+          <mxGeometry height="62" width="126" x="1039" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="PagamentoService" vertex="1">
+          <mxGeometry height="66" width="126" x="1039" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="m4_0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="pagamento" vertex="1">
+          <mxGeometry height="32" width="126" x="1039" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="m4_1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="evento_pagamento" vertex="1">
+          <mxGeometry height="32" width="126" x="1039" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;rounded=1;arcSize=6;fontFamily=Courier New;" value="fidelidade.py" vertex="1">
+          <mxGeometry height="62" width="126" x="1175" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="FidelidadeService" vertex="1">
+          <mxGeometry height="66" width="126" x="1175" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="m5_0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="cliente" vertex="1">
+          <mxGeometry height="32" width="126" x="1175" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="m5_1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="consentimento" vertex="1">
+          <mxGeometry height="32" width="126" x="1175" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="m5_2" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="movimentacao_pontos" vertex="1">
+          <mxGeometry height="32" width="126" x="1175" y="706" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="saude.py&#xa;(health)" vertex="1">
+          <mxGeometry height="62" width="126" x="1311" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="AuditoriaService&#xa;(sem rota)" vertex="1">
+          <mxGeometry height="66" width="126" x="1311" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="m6_0" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="registro_auditoria" vertex="1">
+          <mxGeometry height="32" width="126" x="1311" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;rounded=1;arcSize=6;fontFamily=Courier New;" value="gateway_simulado.py" vertex="1">
+          <mxGeometry height="62" width="126" x="1447" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="s7" parent="1" style="whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;rounded=1;arcSize=6;fontStyle=1;" value="GatewaySimulado-&#xa;Service" vertex="1">
+          <mxGeometry height="66" width="126" x="1447" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="enums" parent="1" style="whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;rounded=1;arcSize=6;" value="enums.py — as 11 enumerações compartilhadas (status do pedido, canal, perfil, forma de pagamento…)" vertex="1">
+          <mxGeometry height="42" width="1066" x="495" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="views" parent="1" style="whiteSpace=wrap;html=0;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;rounded=1;arcSize=6;verticalAlign=top;spacingTop=6;" value="views/ — esquemas Pydantic&#xa;(JSON de entrada e saída)&#xa;&#xa;acesso · unidades · estoque · pedidos&#xa;pagamentos · fidelidade · gateway_simulado" vertex="1">
+          <mxGeometry height="120" width="290" x="60" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="nucleo" parent="1" style="whiteSpace=wrap;html=0;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;rounded=1;arcSize=6;verticalAlign=top;spacingTop=6;align=left;spacingLeft=10;" value="nucleo/ — comum a todas as camadas&#xa;&#xa;config.py — variáveis do .env&#xa;&#xa;banco.py — sessão por requisição&#xa;e controle da transação&#xa;&#xa;seguranca.py — JWT, bcrypt, HMAC&#xa;&#xa;erros.py — formato único de erro&#xa;(D41)&#xa;&#xa;cliente_gateway.py — chamadas&#xa;HTTP ao gateway" vertex="1">
+          <mxGeometry height="500" width="290" x="60" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="gw" parent="1" style="whiteSpace=wrap;html=0;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;rounded=1;arcSize=6;fontStyle=1;" value="Gateway de pagamento&#xa;(externo)&#xa;&#xa;em teste: gateway_simulado" vertex="1">
+          <mxGeometry height="110" width="240" x="1650" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="mysql" parent="1" style="whiteSpace=wrap;html=0;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;shape=cylinder3;boundedLbl=1;size=14;fontStyle=1;" value="MySQL 8" vertex="1">
+          <mxGeometry height="100" width="200" x="860" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="apit" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=15;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=1;" value="API FastAPI — um processo, MVC clássico (pasta app/)" vertex="1">
+          <mxGeometry height="24" width="600" x="56" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="h_ctrl" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=13;align=left;verticalAlign=middle;fontColor=#3b5b8f;fontStyle=1;" value="controllers/" vertex="1">
+          <mxGeometry height="22" width="105" x="378" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="d_ctrl" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=11;align=left;verticalAlign=top;fontColor=#3b5b8f;fontStyle=0;" value="rotas HTTP;&#xa;um arquivo&#xa;por domínio" vertex="1">
+          <mxGeometry height="70" width="105" x="378" y="202" as="geometry" />
+        </mxCell>
+        <mxCell id="h_svc" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=13;align=left;verticalAlign=middle;fontColor=#4d7a3a;fontStyle=1;" value="services/" vertex="1">
+          <mxGeometry height="22" width="105" x="378" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="d_svc" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=11;align=left;verticalAlign=top;fontColor=#4d7a3a;fontStyle=0;" value="regras de&#xa;negócio e&#xa;transação;&#xa;dono das tabelas" vertex="1">
+          <mxGeometry height="80" width="105" x="378" y="392" as="geometry" />
+        </mxCell>
+        <mxCell id="h_mdl" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=13;align=left;verticalAlign=middle;fontColor=#8a6d1a;fontStyle=1;" value="models/" vertex="1">
+          <mxGeometry height="22" width="105" x="378" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="d_mdl" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=11;align=left;verticalAlign=top;fontColor=#8a6d1a;fontStyle=0;" value="SQLAlchemy;&#xa;um arquivo&#xa;por tabela" vertex="1">
+          <mxGeometry height="70" width="105" x="378" y="602" as="geometry" />
+        </mxCell>
+        <mxCell id="m7" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=11;align=center;verticalAlign=middle;fontColor=#777777;fontStyle=2;" value="sem tabela" vertex="1">
+          <mxGeometry height="32" width="126" x="1447" y="614" as="geometry" />
+        </mxCell>
+        <mxCell id="l_view" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=10;align=center;verticalAlign=middle;fontColor=#000000;fontStyle=0;" value="" vertex="1">
+          <mxGeometry height="20" width="160" x="290" y="292" as="geometry" />
+        </mxCell>
+        <mxCell id="l_webhook" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=11;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=0;" value="webhook assinado (HMAC)&#xa;→ controllers/pagamentos.py" vertex="1">
+          <mxGeometry height="40" width="270" x="1640" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="l_cob" parent="1" style="text;html=0;whiteSpace=wrap;fontSize=11;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=0;" value="cobrança e estorno (HTTP)&#xa;via nucleo/cliente_gateway.py" vertex="1">
+          <mxGeometry height="40" width="270" x="1640" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="e_canais" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="80" as="sourcePoint" />
+            <mxPoint x="970" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_canais_l" parent="1" style="text;html=0;fontSize=11;align=left;fontColor=#333333;" value="HTTPS · JSON · /api/v1" vertex="1">
+          <mxGeometry height="20" width="300" x="977" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="ecs0" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="558" y="270" as="sourcePoint" />
+            <mxPoint x="558" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="esm0" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="558" y="466" as="sourcePoint" />
+            <mxPoint x="558" y="614" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ecs1" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="694" y="270" as="sourcePoint" />
+            <mxPoint x="694" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="esm1" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="694" y="466" as="sourcePoint" />
+            <mxPoint x="694" y="614" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ecs2" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="270" as="sourcePoint" />
+            <mxPoint x="830" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="esm2" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="466" as="sourcePoint" />
+            <mxPoint x="830" y="614" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ecs3" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="966" y="270" as="sourcePoint" />
+            <mxPoint x="966" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="esm3" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="966" y="466" as="sourcePoint" />
+            <mxPoint x="966" y="614" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ecs4" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1102" y="270" as="sourcePoint" />
+            <mxPoint x="1102" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="esm4" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1102" y="466" as="sourcePoint" />
+            <mxPoint x="1102" y="614" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ecs5" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1238" y="270" as="sourcePoint" />
+            <mxPoint x="1238" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="esm5" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1238" y="466" as="sourcePoint" />
+            <mxPoint x="1238" y="614" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="esm6" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1374" y="466" as="sourcePoint" />
+            <mxPoint x="1374" y="614" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ecs7" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1510" y="270" as="sourcePoint" />
+            <mxPoint x="1510" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_view" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="240" as="sourcePoint" />
+            <mxPoint x="350" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_nuc" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="430" as="sourcePoint" />
+            <mxPoint x="350" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_webhook" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1625" y="330" />
+              <mxPoint x="1625" y="240" />
+            </Array>
+            <mxPoint x="1650" y="330" as="sourcePoint" />
+            <mxPoint x="1580" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_cob" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1610" y="445" />
+              <mxPoint x="1610" y="390" />
+            </Array>
+            <mxPoint x="1580" y="445" as="sourcePoint" />
+            <mxPoint x="1650" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_db" edge="1" parent="1" style="endArrow=block;endFill=1;html=0;strokeWidth=1.6;strokeColor=#333333;fontSize=11;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="860" as="sourcePoint" />
+            <mxPoint x="960" y="935" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_db_l" parent="1" style="text;html=0;fontSize=11;align=left;fontColor=#333333;" value="SQLAlchemy + PyMySQL" vertex="1">
+          <mxGeometry height="20" width="300" x="967" y="898" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

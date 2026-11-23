@@ -1,0 +1,1052 @@
+openapi: 3.0.3
+info:
+  title: API Raízes do Nordeste
+  version: 1.0.0
+  description: |
+    Contrato da API REST da rede Raízes do Nordeste (trilha Back-end).
+    Especificação de projeto (design-first) da etapa E09. Na E17 este arquivo é
+    comparado com o OpenAPI gerado pelo FastAPI em /openapi.json.
+    Valores em dinheiro são texto decimal com 2 casas; datas em ISO 8601 UTC.
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Ambiente da entrega (uma máquina)
+tags:
+  - name: Acesso
+  - name: Unidades e catálogo
+  - name: Estoque
+  - name: Pedidos
+  - name: Pagamentos
+  - name: Fidelidade e LGPD
+  - name: Operação
+  - name: Gateway simulado
+
+security:
+  - bearerAuth: []
+
+paths:
+  /auth/login:
+    post:
+      tags: [Acesso]
+      summary: Autenticar funcionário ou cliente (RF01, UC16)
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/LoginEntrada' }
+      responses:
+        '200':
+          description: Token emitido
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Token' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /clientes:
+    post:
+      tags: [Acesso]
+      summary: Cadastrar cliente (RF01, UC16)
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ClienteEntrada' }
+      responses:
+        '201':
+          description: Cliente cadastrado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Cliente' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /unidades:
+    get:
+      tags: [Unidades e catálogo]
+      summary: Listar unidades ativas (RF03, RF08, UC01)
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Lista de unidades
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ListaUnidades' }
+        '422': { $ref: '#/components/responses/Validacao' }
+    post:
+      tags: [Unidades e catálogo]
+      summary: Cadastrar unidade — MATRIZ (RF03, UC17)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UnidadeEntrada' }
+      responses:
+        '201':
+          description: Unidade criada
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Unidade' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /unidades/{id}:
+    patch:
+      tags: [Unidades e catálogo]
+      summary: Alterar unidade — MATRIZ (RF03, UC17)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UnidadeAlteracao' }
+      responses:
+        '200':
+          description: Unidade alterada
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Unidade' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /produtos:
+    get:
+      tags: [Unidades e catálogo]
+      summary: Listar catálogo padrão — MATRIZ, GERENTE (RF04)
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Lista de produtos
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ListaProdutos' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '422': { $ref: '#/components/responses/Validacao' }
+    post:
+      tags: [Unidades e catálogo]
+      summary: Cadastrar produto — MATRIZ (RF04, UC18)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProdutoEntrada' }
+      responses:
+        '201':
+          description: Produto criado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Produto' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /produtos/{id}:
+    patch:
+      tags: [Unidades e catálogo]
+      summary: Alterar produto — MATRIZ (RF04, UC18)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProdutoAlteracao' }
+      responses:
+        '200':
+          description: Produto alterado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Produto' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /unidades/{id}/cardapio:
+    get:
+      tags: [Unidades e catálogo]
+      summary: Consultar cardápio vigente da unidade (RF08, UC01)
+      security: []
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200':
+          description: Itens disponíveis com o preço local
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [itens, total]
+                properties:
+                  itens:
+                    type: array
+                    items: { $ref: '#/components/schemas/ItemCardapio' }
+                  total: { type: integer }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /unidades/{id}/cardapio/{produto_id}:
+    put:
+      tags: [Unidades e catálogo]
+      summary: Definir preço e disponibilidade na unidade — GERENTE da unidade, MATRIZ (RF05, UC19)
+      parameters:
+        - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/ProdutoId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ItemCardapioEntrada' }
+      responses:
+        '200':
+          description: Item do cardápio gravado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ItemCardapio' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /unidades/{id}/estoque:
+    get:
+      tags: [Estoque]
+      summary: Consultar estoque da unidade — GERENTE da unidade, MATRIZ (RF15)
+      parameters:
+        - $ref: '#/components/parameters/Id'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Saldo e reserva por produto
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [itens, total]
+                properties:
+                  itens:
+                    type: array
+                    items: { $ref: '#/components/schemas/Estoque' }
+                  total: { type: integer }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /pedidos:
+    post:
+      tags: [Pedidos]
+      summary: Criar pedido multicanal (RF09, RF15, UC02, UC03)
+      description: |
+        CLIENTE (APP, PICKUP); ATENDENTE da unidade (BALCAO); sem login
+        (APP, TOTEM, PICKUP), com devolução de token_pedido (D46).
+        O preço vem sempre de item_cardapio.
+      security:
+        - bearerAuth: []
+        - {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/PedidoEntrada' }
+      responses:
+        '201':
+          description: Pedido criado em AGUARDANDO_PAGAMENTO, estoque reservado
+          headers:
+            Location:
+              schema: { type: string }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pedido' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /pedidos/{id}:
+    get:
+      tags: [Pedidos]
+      summary: Consultar pedido e histórico de status (RF10, UC10)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200':
+          description: Pedido
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PedidoDetalhe' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /unidades/{id}/pedidos:
+    get:
+      tags: [Pedidos]
+      summary: Painel de pedidos da unidade — funcionário da unidade, MATRIZ (RF10, RF11, UC11)
+      parameters:
+        - $ref: '#/components/parameters/Id'
+        - name: status
+          in: query
+          schema: { $ref: '#/components/schemas/StatusPedido' }
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Pedidos da unidade, mais antigos primeiro
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ListaPedidos' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /pedidos/{id}/status:
+    patch:
+      tags: [Pedidos]
+      summary: Avançar status — COZINHA (EM_PREPARO, PRONTO), ATENDENTE (ENTREGUE) (RF11, UC11)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [status]
+              properties:
+                status:
+                  type: string
+                  enum: [EM_PREPARO, PRONTO, ENTREGUE]
+      responses:
+        '200':
+          description: Status alterado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pedido' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /pedidos/{id}/cancelamento:
+    post:
+      tags: [Pedidos]
+      summary: Cancelar pedido com justificativa — dono (T5, T9), GERENTE da unidade (T5, T9–T11) (RF12, UC12)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [justificativa]
+              properties:
+                justificativa: { type: string, minLength: 10, maxLength: 255 }
+      responses:
+        '200':
+          description: Pedido CANCELADO; estorno solicitado se estava pago
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pedido' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /pedidos/{id}/pagamentos:
+    post:
+      tags: [Pagamentos]
+      summary: Solicitar pagamento online ao gateway — dono do pedido (RF13, UC06)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [forma]
+              properties:
+                forma:
+                  type: string
+                  enum: [PIX, CARTAO_CREDITO, CARTAO_DEBITO]
+      responses:
+        '200':
+          description: Pagamento já solicitado; devolve o mesmo (idempotente)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pagamento' }
+        '202':
+          description: Cobrança aceita pelo gateway; resultado virá pelo webhook
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pagamento' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+        '503': { $ref: '#/components/responses/Indisponivel' }
+
+  /pedidos/{id}/pagamentos/balcao:
+    post:
+      tags: [Pagamentos]
+      summary: Confirmar pagamento presencial — ATENDENTE da unidade (RF14, UC09, D14)
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [forma]
+              properties:
+                forma: { $ref: '#/components/schemas/FormaPagamento' }
+      responses:
+        '201':
+          description: Pagamento APROVADO; pedido PAGO (T2)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Pagamento' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '403': { $ref: '#/components/responses/SemPermissao' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /webhooks/pagamentos:
+    post:
+      tags: [Pagamentos]
+      summary: Receber resultado do gateway (RF14, RF15, RF17, UC07, UC08)
+      security:
+        - assinaturaWebhook: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/EventoWebhook' }
+      responses:
+        '200':
+          description: Evento processado ou repetido
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [resultado]
+                properties:
+                  resultado:
+                    type: string
+                    enum: [PROCESSADO, REPETIDO]
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /clientes/me:
+    get:
+      tags: [Fidelidade e LGPD]
+      summary: Dados do cliente e saldo de pontos — CLIENTE (RF17, RF25)
+      responses:
+        '200':
+          description: Dados do titular (acesso auditado)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Cliente' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+
+  /clientes/me/pontos:
+    get:
+      tags: [Fidelidade e LGPD]
+      summary: Extrato de pontos — CLIENTE (RF17, UC08)
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Movimentações, mais recentes primeiro
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [itens, total]
+                properties:
+                  itens:
+                    type: array
+                    items: { $ref: '#/components/schemas/MovimentacaoPontos' }
+                  total: { type: integer }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /clientes/me/consentimentos:
+    get:
+      tags: [Fidelidade e LGPD]
+      summary: Listar consentimentos — CLIENTE (RF20, UC21)
+      responses:
+        '200':
+          description: Consentimentos, vigentes e revogados
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Consentimento' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+    post:
+      tags: [Fidelidade e LGPD]
+      summary: Conceder consentimento — CLIENTE (RF20, UC21)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ConsentimentoEntrada' }
+      responses:
+        '201':
+          description: Consentimento registrado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Consentimento' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /clientes/me/consentimentos/{finalidade}:
+    delete:
+      tags: [Fidelidade e LGPD]
+      summary: Revogar consentimento — CLIENTE (RF20, UC21)
+      parameters:
+        - name: finalidade
+          in: path
+          required: true
+          schema: { $ref: '#/components/schemas/Finalidade' }
+      responses:
+        '204': { description: Consentimento revogado (revogado_em preenchido) }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /health:
+    get:
+      tags: [Operação]
+      summary: Health check com teste do MySQL (RNF10, D38)
+      security: []
+      responses:
+        '200':
+          description: API e banco disponíveis
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: ok }
+                  banco: { type: string, example: ok }
+        '503': { $ref: '#/components/responses/Indisponivel' }
+
+  /gateway-simulado/cobrancas:
+    post:
+      tags: [Gateway simulado]
+      summary: Criar cobrança; mesma referência devolve a mesma transação (D39)
+      security:
+        - chaveApi: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [referencia, valor, forma]
+              properties:
+                referencia: { type: string, description: pedido_id }
+                valor: { $ref: '#/components/schemas/Dinheiro' }
+                forma:
+                  type: string
+                  enum: [PIX, CARTAO_CREDITO, CARTAO_DEBITO]
+      responses:
+        '200':
+          description: Referência já existente; mesma transação
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Cobranca' }
+        '201':
+          description: Cobrança criada
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Cobranca' }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /gateway-simulado/cobrancas/{transacao_id}/resultado:
+    post:
+      tags: [Gateway simulado]
+      summary: Decidir a cobrança e disparar o webhook (uso em testes)
+      security:
+        - chaveApi: []
+      parameters:
+        - $ref: '#/components/parameters/TransacaoId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [resultado]
+              properties:
+                resultado:
+                  type: string
+                  enum: [APROVADO, RECUSADO]
+                motivo: { type: string, maxLength: 255, nullable: true }
+      responses:
+        '202': { description: Webhook agendado }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+  /gateway-simulado/estornos:
+    post:
+      tags: [Gateway simulado]
+      summary: Solicitar estorno; o resultado chega como refund.completed (UC13)
+      security:
+        - chaveApi: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [transacao_id]
+              properties:
+                transacao_id: { type: string }
+      responses:
+        '202': { description: Estorno aceito }
+        '401': { $ref: '#/components/responses/NaoAutenticado' }
+        '404': { $ref: '#/components/responses/NaoEncontrado' }
+        '409': { $ref: '#/components/responses/Conflito' }
+        '422': { $ref: '#/components/responses/Validacao' }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT HS256, validade de 60 min (token de pedido anônimo, 4 h)
+    assinaturaWebhook:
+      type: apiKey
+      in: header
+      name: X-Assinatura
+      description: "sha256=<HMAC-SHA256 do corpo bruto com WEBHOOK_SEGREDO>"
+    chaveApi:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema: { type: integer, format: int64, minimum: 1 }
+    ProdutoId:
+      name: produto_id
+      in: path
+      required: true
+      schema: { type: integer, format: int64, minimum: 1 }
+    TransacaoId:
+      name: transacao_id
+      in: path
+      required: true
+      schema: { type: string }
+    Limit:
+      name: limit
+      in: query
+      schema: { type: integer, minimum: 1, maximum: 100, default: 20 }
+    Offset:
+      name: offset
+      in: query
+      schema: { type: integer, minimum: 0, default: 0 }
+
+  responses:
+    NaoAutenticado:
+      description: NAO_AUTENTICADO, CREDENCIAIS_INVALIDAS ou ASSINATURA_INVALIDA
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Erro' }
+    SemPermissao:
+      description: SEM_PERMISSAO
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Erro' }
+    NaoEncontrado:
+      description: NAO_ENCONTRADO (inclui recurso de outro cliente) ou TRANSACAO_DESCONHECIDA
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Erro' }
+    Conflito:
+      description: Conflito com o estado atual (ver tabela da seção 3.6.4)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Erro' }
+    Validacao:
+      description: VALIDACAO ou regra de valor (PRECO_FORA_DA_FAIXA, JUSTIFICATIVA_OBRIGATORIA, AUTORIZACAO_RESPONSAVEL_OBRIGATORIA)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Erro' }
+    Indisponivel:
+      description: GATEWAY_INDISPONIVEL ou BANCO_INDISPONIVEL
+      headers:
+        Retry-After:
+          schema: { type: integer }
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Erro' }
+
+  schemas:
+    Dinheiro:
+      type: string
+      pattern: '^\d{1,8}\.\d{2}$'
+      example: '18.90'
+    DataHora:
+      type: string
+      format: date-time
+      example: '2026-11-22T19:45:00Z'
+    Perfil:
+      type: string
+      enum: [MATRIZ, GERENTE, ATENDENTE, COZINHA]
+    TipoOperacao:
+      type: string
+      enum: [COMPLETA, REDUZIDA]
+    Canal:
+      type: string
+      enum: [APP, TOTEM, BALCAO, PICKUP]
+    StatusPedido:
+      type: string
+      enum: [AGUARDANDO_PAGAMENTO, PAGO, EM_PREPARO, PRONTO, ENTREGUE, PAGAMENTO_RECUSADO, EXPIRADO, CANCELADO]
+    StatusPagamento:
+      type: string
+      enum: [PENDENTE, APROVADO, RECUSADO, ESTORNO_SOLICITADO, ESTORNADO]
+    TipoPagamento:
+      type: string
+      enum: [ONLINE, BALCAO]
+    FormaPagamento:
+      type: string
+      enum: [PIX, CARTAO_CREDITO, CARTAO_DEBITO, DINHEIRO]
+    OrigemAcao:
+      type: string
+      enum: [CLIENTE, FUNCIONARIO, SISTEMA, GATEWAY]
+    Finalidade:
+      type: string
+      enum: [FIDELIDADE]
+    FaixaEtaria:
+      type: string
+      enum: [MENOR_18, DE_18_A_24, DE_25_A_34, DE_35_A_44, DE_45_A_59, A_PARTIR_60]
+    TipoMovPontos:
+      type: string
+      enum: [CREDITO, ESTORNO]
+
+    Erro:
+      type: object
+      required: [erro]
+      properties:
+        erro:
+          type: object
+          required: [codigo, mensagem, request_id]
+          properties:
+            codigo: { type: string, example: ESTOQUE_INSUFICIENTE }
+            mensagem: { type: string }
+            detalhes:
+              type: array
+              items:
+                type: object
+                properties:
+                  campo: { type: string }
+                  valor: {}
+                  problema: { type: string }
+            request_id: { type: string }
+
+    LoginEntrada:
+      type: object
+      additionalProperties: false
+      required: [email, senha, tipo]
+      properties:
+        email: { type: string, format: email, maxLength: 150 }
+        senha: { type: string, minLength: 8, maxLength: 72 }
+        tipo: { type: string, enum: [FUNCIONARIO, CLIENTE] }
+    Token:
+      type: object
+      required: [access_token, token_type, expira_em]
+      properties:
+        access_token: { type: string }
+        token_type: { type: string, example: bearer }
+        expira_em: { $ref: '#/components/schemas/DataHora' }
+        perfil: { $ref: '#/components/schemas/Perfil' }
+        unidade_id: { type: integer, nullable: true }
+
+    ClienteEntrada:
+      type: object
+      additionalProperties: false
+      required: [nome, email, senha]
+      properties:
+        nome: { type: string, minLength: 2, maxLength: 100 }
+        email: { type: string, format: email, maxLength: 150 }
+        telefone: { type: string, maxLength: 20, nullable: true }
+        senha: { type: string, minLength: 8, maxLength: 72 }
+        faixa_etaria: { $ref: '#/components/schemas/FaixaEtaria' }
+    Cliente:
+      type: object
+      properties:
+        id: { type: integer }
+        nome: { type: string }
+        email: { type: string }
+        telefone: { type: string, nullable: true }
+        faixa_etaria: { $ref: '#/components/schemas/FaixaEtaria' }
+        saldo_pontos: { type: integer }
+        criado_em: { $ref: '#/components/schemas/DataHora' }
+
+    UnidadeEntrada:
+      type: object
+      additionalProperties: false
+      required: [nome, tipo_operacao, cidade, uf, horario_abertura, horario_fechamento]
+      properties:
+        nome: { type: string, maxLength: 100 }
+        tipo_operacao: { $ref: '#/components/schemas/TipoOperacao' }
+        cidade: { type: string, maxLength: 80 }
+        uf: { type: string, pattern: '^[A-Z]{2}$' }
+        horario_abertura: { type: string, example: '06:00' }
+        horario_fechamento: { type: string, example: '22:00' }
+    UnidadeAlteracao:
+      type: object
+      additionalProperties: false
+      properties:
+        nome: { type: string, maxLength: 100 }
+        tipo_operacao: { $ref: '#/components/schemas/TipoOperacao' }
+        horario_abertura: { type: string }
+        horario_fechamento: { type: string }
+        ativa: { type: boolean }
+    Unidade:
+      allOf:
+        - $ref: '#/components/schemas/UnidadeEntrada'
+        - type: object
+          properties:
+            id: { type: integer }
+            ativa: { type: boolean }
+            criado_em: { $ref: '#/components/schemas/DataHora' }
+    ListaUnidades:
+      type: object
+      required: [itens, total]
+      properties:
+        itens:
+          type: array
+          items: { $ref: '#/components/schemas/Unidade' }
+        total: { type: integer }
+
+    ProdutoEntrada:
+      type: object
+      additionalProperties: false
+      required: [codigo, nome, categoria, preco_base, preco_minimo, preco_maximo, exige_cozinha_completa]
+      properties:
+        codigo: { type: string, maxLength: 20 }
+        nome: { type: string, maxLength: 100 }
+        descricao: { type: string, maxLength: 255, nullable: true }
+        categoria: { type: string, maxLength: 50 }
+        preco_base: { $ref: '#/components/schemas/Dinheiro' }
+        preco_minimo: { $ref: '#/components/schemas/Dinheiro' }
+        preco_maximo: { $ref: '#/components/schemas/Dinheiro' }
+        exige_cozinha_completa: { type: boolean }
+    ProdutoAlteracao:
+      type: object
+      additionalProperties: false
+      properties:
+        nome: { type: string, maxLength: 100 }
+        descricao: { type: string, maxLength: 255, nullable: true }
+        categoria: { type: string, maxLength: 50 }
+        preco_base: { $ref: '#/components/schemas/Dinheiro' }
+        preco_minimo: { $ref: '#/components/schemas/Dinheiro' }
+        preco_maximo: { $ref: '#/components/schemas/Dinheiro' }
+        exige_cozinha_completa: { type: boolean }
+        ativo: { type: boolean }
+    Produto:
+      allOf:
+        - $ref: '#/components/schemas/ProdutoEntrada'
+        - type: object
+          properties:
+            id: { type: integer }
+            ativo: { type: boolean }
+    ListaProdutos:
+      type: object
+      required: [itens, total]
+      properties:
+        itens:
+          type: array
+          items: { $ref: '#/components/schemas/Produto' }
+        total: { type: integer }
+
+    ItemCardapioEntrada:
+      type: object
+      additionalProperties: false
+      required: [preco, disponivel]
+      properties:
+        preco: { $ref: '#/components/schemas/Dinheiro' }
+        disponivel: { type: boolean }
+    ItemCardapio:
+      type: object
+      properties:
+        produto_id: { type: integer }
+        nome: { type: string }
+        descricao: { type: string, nullable: true }
+        categoria: { type: string }
+        preco: { $ref: '#/components/schemas/Dinheiro' }
+        disponivel: { type: boolean }
+
+    Estoque:
+      type: object
+      properties:
+        produto_id: { type: integer }
+        quantidade: { type: integer }
+        quantidade_reservada: { type: integer }
+        disponivel: { type: integer, description: quantidade - quantidade_reservada }
+        atualizado_em: { $ref: '#/components/schemas/DataHora' }
+
+    PedidoEntrada:
+      type: object
+      additionalProperties: false
+      required: [unidade_id, canal, itens]
+      properties:
+        unidade_id: { type: integer, minimum: 1 }
+        canal: { $ref: '#/components/schemas/Canal' }
+        itens:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items:
+            type: object
+            additionalProperties: false
+            required: [produto_id, quantidade]
+            properties:
+              produto_id: { type: integer, minimum: 1 }
+              quantidade: { type: integer, minimum: 1, maximum: 20 }
+    ItemPedido:
+      type: object
+      properties:
+        produto_id: { type: integer }
+        nome: { type: string }
+        quantidade: { type: integer }
+        preco_unitario: { $ref: '#/components/schemas/Dinheiro' }
+        subtotal: { $ref: '#/components/schemas/Dinheiro' }
+    Pedido:
+      type: object
+      properties:
+        id: { type: integer }
+        unidade_id: { type: integer }
+        cliente_id: { type: integer, nullable: true }
+        canal: { $ref: '#/components/schemas/Canal' }
+        status: { $ref: '#/components/schemas/StatusPedido' }
+        valor_total: { $ref: '#/components/schemas/Dinheiro' }
+        expira_em: { allOf: [ { $ref: '#/components/schemas/DataHora' } ], nullable: true }
+        criado_em: { $ref: '#/components/schemas/DataHora' }
+        itens:
+          type: array
+          items: { $ref: '#/components/schemas/ItemPedido' }
+        token_pedido:
+          type: string
+          description: Só em pedido anônimo (D46)
+    PedidoDetalhe:
+      allOf:
+        - $ref: '#/components/schemas/Pedido'
+        - type: object
+          properties:
+            historico:
+              type: array
+              items:
+                type: object
+                properties:
+                  status: { $ref: '#/components/schemas/StatusPedido' }
+                  origem: { $ref: '#/components/schemas/OrigemAcao' }
+                  em: { $ref: '#/components/schemas/DataHora' }
+            pagamento:
+              allOf: [ { $ref: '#/components/schemas/Pagamento' } ]
+              nullable: true
+    ListaPedidos:
+      type: object
+      required: [itens, total]
+      properties:
+        itens:
+          type: array
+          items: { $ref: '#/components/schemas/Pedido' }
+        total: { type: integer }
+
+    Pagamento:
+      type: object
+      properties:
+        pagamento_id: { type: integer }
+        pedido_id: { type: integer }
+        tipo: { $ref: '#/components/schemas/TipoPagamento' }
+        forma: { $ref: '#/components/schemas/FormaPagamento' }
+        valor: { $ref: '#/components/schemas/Dinheiro' }
+        status: { $ref: '#/components/schemas/StatusPagamento' }
+        transacao_gateway: { type: string, nullable: true }
+        motivo_recusa: { type: string, nullable: true }
+    EventoWebhook:
+      type: object
+      additionalProperties: false
+      required: [evento_id, tipo, transacao_id, referencia, status, ocorrido_em]
+      properties:
+        evento_id: { type: string, maxLength: 100 }
+        tipo:
+          type: string
+          enum: [payment.approved, payment.refused, refund.completed]
+        transacao_id: { type: string, maxLength: 100 }
+        referencia: { type: string, description: pedido_id }
+        status:
+          type: string
+          enum: [APROVADO, RECUSADO, ESTORNADO]
+        motivo: { type: string, maxLength: 255, nullable: true }
+        ocorrido_em: { $ref: '#/components/schemas/DataHora' }
+    Cobranca:
+      type: object
+      properties:
+        transacao_id: { type: string, example: sim_8f3a2c }
+        referencia: { type: string }
+        status: { type: string, enum: [PENDENTE, APROVADO, RECUSADO, ESTORNADO] }
+
+    MovimentacaoPontos:
+      type: object
+      properties:
+        id: { type: integer }
+        pedido_id: { type: integer, nullable: true }
+        tipo: { $ref: '#/components/schemas/TipoMovPontos' }
+        pontos: { type: integer }
+        criado_em: { $ref: '#/components/schemas/DataHora' }
+    ConsentimentoEntrada:
+      type: object
+      additionalProperties: false
+      required: [finalidade, versao_termo]
+      properties:
+        finalidade: { $ref: '#/components/schemas/Finalidade' }
+        versao_termo: { type: string, maxLength: 10 }
+        autorizado_responsavel: { type: boolean, default: false }
+    Consentimento:
+      type: object
+      properties:
+        id: { type: integer }
+        finalidade: { $ref: '#/components/schemas/Finalidade' }
+        versao_termo: { type: string }
+        autorizado_responsavel: { type: boolean }
+        concedido_em: { $ref: '#/components/schemas/DataHora' }
+        revogado_em: { allOf: [ { $ref: '#/components/schemas/DataHora' } ], nullable: true }

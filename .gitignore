@@ -1,0 +1,13 @@
+# Ambiente virtual do Python
+.venv/
+
+# Arquivos gerados pelo Python e pelo pytest
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Segredos: só o .env.example é versionado
+.env
+
+# Configurações locais do editor
+.vscode/

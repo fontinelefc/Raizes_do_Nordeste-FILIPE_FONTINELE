@@ -1,0 +1,440 @@
+<mxfile host="app.diagrams.net" agent="E06 - Raízes do Nordeste">
+  <diagram id="der" name="DER">
+    <mxGraphModel dx="1885" dy="1020" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1568" pageHeight="1058" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="der-t2" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="estoque" vertex="1">
+          <mxGeometry height="119" width="300" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r3" parent="der-t2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;unidade_id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r4" parent="der-t2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;produto_id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r5" parent="der-t2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;quantidade&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;INT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r6" parent="der-t2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;quantidade_reservada&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;INT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r7" parent="der-t2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;atualizado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t8" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="item_cardapio" vertex="1">
+          <mxGeometry height="119" width="300" x="436" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r9" parent="der-t8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;unidade_id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r10" parent="der-t8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;produto_id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r11" parent="der-t8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;preco&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r12" parent="der-t8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;disponivel&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BOOLEAN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r13" parent="der-t8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;atualizado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t14" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="produto" vertex="1">
+          <mxGeometry height="204" width="300" x="832" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r15" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r16" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;codigo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(20)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r17" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;nome&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(100)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r18" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;descricao&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(255) ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r19" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;categoria&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(50)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r20" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;preco_base&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r21" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;preco_minimo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r22" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;preco_maximo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="147" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r23" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;exige_cozinha_completa&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BOOLEAN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r24" parent="der-t14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;ativo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BOOLEAN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t25" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="historico_status_pedido" vertex="1">
+          <mxGeometry height="147" width="300" x="40" y="591" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r26" parent="der-t25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r27" parent="der-t25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;pedido_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r28" parent="der-t25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;status_anterior&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r29" parent="der-t25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;status_novo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r30" parent="der-t25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;origem&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r31" parent="der-t25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;motivo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(255) ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r32" parent="der-t25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t33" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="unidade" vertex="1">
+          <mxGeometry height="187" width="300" x="436" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r34" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r35" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;nome&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(100)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r36" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;tipo_operacao&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r37" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;cidade&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(80)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r38" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;uf&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;CHAR(2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r39" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;horario_abertura&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;TIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r40" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;horario_fechamento&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;TIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r41" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;ativa&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BOOLEAN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="147" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r42" parent="der-t33" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t43" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="item_pedido" vertex="1">
+          <mxGeometry height="136" width="300" x="832" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r44" parent="der-t43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r45" parent="der-t43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;pedido_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r46" parent="der-t43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;produto_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r47" parent="der-t43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;quantidade&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;INT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r48" parent="der-t43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;preco_unitario&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r49" parent="der-t43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;subtotal&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t50" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="pedido" vertex="1">
+          <mxGeometry height="187" width="300" x="1228" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r51" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r52" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;unidade_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r53" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;cliente_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r54" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;canal&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r55" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;status&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r56" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;valor_total&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r57" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;expira_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r58" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="147" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r59" parent="der-t50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;atualizado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t60" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="pagamento" vertex="1">
+          <mxGeometry height="204" width="300" x="1228" y="591" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r61" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r62" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;pedido_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r63" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;tipo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r64" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;forma&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r65" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;valor&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DECIMAL(10,2)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r66" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;status&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r67" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;transacao_gateway&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(100) ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r68" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;motivo_recusa&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(255) ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="147" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r69" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r70" parent="der-t60" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;atualizado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t71" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="registro_auditoria" vertex="1">
+          <mxGeometry height="204" width="300" x="1228" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r72" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r73" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;ator_tipo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r74" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;ator_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r75" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;acao&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(50)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r76" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;entidade&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(50)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r77" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;entidade_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r78" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;unidade_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r79" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;detalhes&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;JSON ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="147" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r80" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;ip_origem&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(45) ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r81" parent="der-t71" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME(3)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t82" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="usuario" vertex="1">
+          <mxGeometry height="170" width="300" x="40" y="304" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r83" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r84" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;unidade_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r85" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;nome&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(100)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r86" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;email&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(150)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r87" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;senha_hash&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(255)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r88" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;perfil&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r89" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;ativo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BOOLEAN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r90" parent="der-t82" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="147" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t91" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="cliente" vertex="1">
+          <mxGeometry height="164" width="300" x="600" y="591" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r92" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r93" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;nome&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(100)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r94" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;email&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(150)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r95" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;telefone&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(20) ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r96" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;senha_hash&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(255)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r97" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;faixa_etaria&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r98" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;saldo_pontos&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;INT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r99" parent="der-t91" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="147" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t100" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="evento_pagamento" vertex="1">
+          <mxGeometry height="147" width="300" x="1132" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r101" parent="der-t100" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r102" parent="der-t100" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;evento_gateway&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(100)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r103" parent="der-t100" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;pagamento_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r104" parent="der-t100" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;tipo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(50)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r105" parent="der-t100" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;payload&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;JSON&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r106" parent="der-t100" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;recebido_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r107" parent="der-t100" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;processado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t108" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="consentimento" vertex="1">
+          <mxGeometry height="147" width="300" x="40" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r109" parent="der-t108" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r110" parent="der-t108" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;cliente_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r111" parent="der-t108" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;finalidade&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r112" parent="der-t108" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;versao_termo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;VARCHAR(10)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r113" parent="der-t108" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;autorizado_responsavel&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BOOLEAN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r114" parent="der-t108" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;concedido_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r115" parent="der-t108" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;revogado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="der-t116" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;rounded=1;arcSize=4;fillColor=#DAE8FC;strokeColor=#6C8EBF;swimlaneFillColor=#FFFFFF;fontSize=12;" value="movimentacao_pontos" vertex="1">
+          <mxGeometry height="130" width="300" x="590" y="866" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r117" parent="der-t116" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r118" parent="der-t116" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;cliente_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r119" parent="der-t116" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;pedido_id&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;BIGINT ?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r120" parent="der-t116" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;tipo&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;ENUM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r121" parent="der-t116" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;pontos&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;INT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="der-r122" parent="der-t116" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;whiteSpace=wrap;fontSize=11;" value="&amp;nbsp;&amp;nbsp;criado_em&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#555555&quot;&gt;DATETIME&lt;/font&gt;" vertex="1">
+          <mxGeometry height="17" width="300" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e123" edge="1" parent="1" source="der-t8" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.0000;exitY=0.3361;exitDx=0;exitDy=0;entryX=1.0000;entryY=0.3361;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e124" edge="1" parent="1" source="der-t14" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.0000;exitY=0.1961;exitDx=0;exitDy=0;entryX=1.0000;entryY=0.3361;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e125" edge="1" parent="1" source="der-t14" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.5000;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t43" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e126" edge="1" parent="1" source="der-t33" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.5000;exitY=0.0000;exitDx=0;exitDy=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e127" edge="1" parent="1" source="der-t33" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.0000;exitY=0.2139;exitDx=0;exitDy=0;entryX=1.0000;entryY=0.2353;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t82" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e128" edge="1" parent="1" source="der-t33" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.6833;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.1833;entryY=1.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t50" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="641" y="511" />
+              <mxPoint x="1283" y="511" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="der-e129" edge="1" parent="1" source="der-t50" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.0000;exitY=0.2139;exitDx=0;exitDy=0;entryX=1.0000;entryY=0.2941;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t43" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e130" edge="1" parent="1" source="der-t50" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.7000;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.7000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t60" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e131" edge="1" parent="1" source="der-t60" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.5000;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t100" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e132" edge="1" parent="1" source="der-t50" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.2833;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t25" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1313" y="531" />
+              <mxPoint x="586" y="531" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="der-e133" edge="1" parent="1" source="der-t91" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.6333;exitY=0.0000;exitDx=0;exitDy=0;entryX=0.3833;entryY=1.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t50" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1022" y="551" />
+              <mxPoint x="1343" y="551" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="der-e134" edge="1" parent="1" source="der-t91" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.3667;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t108" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="586" y="815" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="der-e135" edge="1" parent="1" source="der-t91" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.6000;exitY=1.0000;exitDx=0;exitDy=0;entryX=0.6000;entryY=0.0000;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t116" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="der-e136" edge="1" parent="1" source="der-t50" style="edgeStyle=none;html=1;rounded=0;jumpStyle=arc;jumpSize=10;strokeColor=#333333;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=10;endSize=10;exitX=0.4833;exitY=1.0000;exitDx=0;exitDy=0;entryX=1.0000;entryY=0.2941;entryDx=0;entryDy=0;fontSize=10;fontStyle=2;fontColor=#555555;labelBackgroundColor=#FFFFFF;" target="der-t116" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1373" y="571" />
+              <mxPoint x="1180" y="571" />
+              <mxPoint x="1090" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
