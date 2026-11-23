@@ -4,12 +4,18 @@ from datetime import datetime, timezone
 from typing import Annotated, Any
 
 from pydantic import AfterValidator, BaseModel, ConfigDict, Field
+from pydantic.json_schema import SkipJsonSchema
 
 # Dinheiro como texto decimal com 2 casas (ex.: "18.90"), nunca float
 Dinheiro = Annotated[str, Field(pattern=r"^\d{1,8}\.\d{2}$", examples=["18.90"])]
 
-# Validação simples de e-mail sem dependência extra (D18); o formato fica no contrato
-Email = Annotated[str, Field(max_length=150, pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")]
+# Validação simples de e-mail sem dependência extra (D18); "format: email" só documenta (E17)
+Email = Annotated[
+    str, Field(max_length=150, pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$", json_schema_extra={"format": "email"})
+]
+
+# Campo opcional que não aceita null (E17): o None só marca "não enviado" e não aparece no OpenAPI
+SemNulo = SkipJsonSchema[None]
 
 def _em_utc(valor: datetime) -> datetime:
     # O MySQL devolve DATETIME sem fuso; o banco grava em UTC (M12, D55)
@@ -27,7 +33,13 @@ class Entrada(BaseModel):
 
 
 class Saida(BaseModel):
-    """Base dos corpos de resposta."""
+    """Base dos corpos de resposta.
+
+    Toda saída manda todos os campos, mesmo os nulos; por isso o OpenAPI lista
+    todos como obrigatórios (E17), inclusive os que têm valor padrão.
+    """
+
+    model_config = ConfigDict(json_schema_serialization_defaults_required=True)
 
 
 class Saude(Saida):
@@ -39,16 +51,19 @@ class Saude(Saida):
 
 # ---- Formato único de erro (D41) ----
 
-class DetalheErro(Saida):
-    campo: str | None = None
+# O corpo de erro é montado em nucleo/erros.py; estes modelos só documentam o formato.
+# "detalhes" é omitido quando vazio, então não é obrigatório (E17).
+
+class DetalheErro(BaseModel):
+    campo: str | SemNulo = None
     valor: Any = None
-    problema: str | None = None
+    problema: str | SemNulo = None
 
 
-class CorpoErro(Saida):
+class CorpoErro(BaseModel):
     codigo: str = Field(examples=["ESTOQUE_INSUFICIENTE"])
     mensagem: str
-    detalhes: list[DetalheErro] | None = None
+    detalhes: list[DetalheErro] | SemNulo = None
     request_id: str
 
 
@@ -66,7 +81,16 @@ _DESCRICAO_ERRO = {
     503: "GATEWAY_INDISPONIVEL ou BANCO_INDISPONIVEL",
 }
 
+# Cabeçalhos documentados no OpenAPI (o envio fica em nucleo/erros.py e nos controllers)
+CABECALHO_RETRY_AFTER = {"Retry-After": {"schema": {"type": "integer"}, "description": "Segundos até tentar de novo"}}
+CABECALHO_LOCATION = {"Location": {"schema": {"type": "string"}, "description": "Caminho do recurso criado"}}
+
 
 def respostas_erro(*status: int) -> dict[int | str, dict[str, Any]]:
     """Monta o ``responses`` de uma rota com o formato único de erro."""
-    return {s: {"model": Erro, "description": _DESCRICAO_ERRO[s]} for s in status}
+    respostas: dict[int | str, dict[str, Any]] = {}
+    for s in status:
+        respostas[s] = {"model": Erro, "description": _DESCRICAO_ERRO[s]}
+        if s == 503:
+            respostas[s]["headers"] = CABECALHO_RETRY_AFTER
+    return respostas

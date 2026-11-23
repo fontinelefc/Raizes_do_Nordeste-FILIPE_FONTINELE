@@ -1156,6 +1156,10 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "required": [
+                    "status",
+                    "banco"
+                  ],
                   "properties": {
                     "status": {
                       "type": "string",
@@ -1664,7 +1668,8 @@
           "email": {
             "type": "string",
             "format": "email",
-            "maxLength": 150
+            "maxLength": 150,
+            "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
           },
           "senha": {
             "type": "string",
@@ -1685,7 +1690,9 @@
         "required": [
           "access_token",
           "token_type",
-          "expira_em"
+          "expira_em",
+          "perfil",
+          "unidade_id"
         ],
         "properties": {
           "access_token": {
@@ -1699,7 +1706,13 @@
             "$ref": "#/components/schemas/DataHora"
           },
           "perfil": {
-            "$ref": "#/components/schemas/Perfil"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Perfil"
+              }
+            ],
+            "nullable": true,
+            "description": "Só para FUNCIONARIO"
           },
           "unidade_id": {
             "type": "integer",
@@ -1724,7 +1737,8 @@
           "email": {
             "type": "string",
             "format": "email",
-            "maxLength": 150
+            "maxLength": 150,
+            "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
           },
           "telefone": {
             "type": "string",
@@ -1737,12 +1751,26 @@
             "maxLength": 72
           },
           "faixa_etaria": {
-            "$ref": "#/components/schemas/FaixaEtaria"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaixaEtaria"
+              }
+            ],
+            "nullable": true
           }
         }
       },
       "Cliente": {
         "type": "object",
+        "required": [
+          "id",
+          "nome",
+          "email",
+          "telefone",
+          "faixa_etaria",
+          "saldo_pontos",
+          "criado_em"
+        ],
         "properties": {
           "id": {
             "type": "integer"
@@ -1758,7 +1786,12 @@
             "nullable": true
           },
           "faixa_etaria": {
-            "$ref": "#/components/schemas/FaixaEtaria"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaixaEtaria"
+              }
+            ],
+            "nullable": true
           },
           "saldo_pontos": {
             "type": "integer"
@@ -1834,6 +1867,11 @@
           },
           {
             "type": "object",
+            "required": [
+              "id",
+              "ativa",
+              "criado_em"
+            ],
             "properties": {
               "id": {
                 "type": "integer"
@@ -1951,6 +1989,10 @@
           },
           {
             "type": "object",
+            "required": [
+              "id",
+              "ativo"
+            ],
             "properties": {
               "id": {
                 "type": "integer"
@@ -1998,6 +2040,14 @@
       },
       "ItemCardapio": {
         "type": "object",
+        "required": [
+          "produto_id",
+          "nome",
+          "descricao",
+          "categoria",
+          "preco",
+          "disponivel"
+        ],
         "properties": {
           "produto_id": {
             "type": "integer"
@@ -2022,6 +2072,13 @@
       },
       "Estoque": {
         "type": "object",
+        "required": [
+          "produto_id",
+          "quantidade",
+          "quantidade_reservada",
+          "disponivel",
+          "atualizado_em"
+        ],
         "properties": {
           "produto_id": {
             "type": "integer"
@@ -2085,6 +2142,13 @@
       },
       "ItemPedido": {
         "type": "object",
+        "required": [
+          "produto_id",
+          "nome",
+          "quantidade",
+          "preco_unitario",
+          "subtotal"
+        ],
         "properties": {
           "produto_id": {
             "type": "integer"
@@ -2105,6 +2169,18 @@
       },
       "Pedido": {
         "type": "object",
+        "required": [
+          "id",
+          "unidade_id",
+          "cliente_id",
+          "canal",
+          "status",
+          "valor_total",
+          "expira_em",
+          "criado_em",
+          "itens",
+          "token_pedido"
+        ],
         "properties": {
           "id": {
             "type": "integer"
@@ -2144,7 +2220,8 @@
           },
           "token_pedido": {
             "type": "string",
-            "description": "Só em pedido anônimo (D46)"
+            "nullable": true,
+            "description": "Só em pedido anônimo (D46); null nos demais"
           }
         }
       },
@@ -2155,11 +2232,20 @@
           },
           {
             "type": "object",
+            "required": [
+              "historico",
+              "pagamento"
+            ],
             "properties": {
               "historico": {
                 "type": "array",
                 "items": {
                   "type": "object",
+                  "required": [
+                    "status",
+                    "origem",
+                    "em"
+                  ],
                   "properties": {
                     "status": {
                       "$ref": "#/components/schemas/StatusPedido"
@@ -2205,6 +2291,16 @@
       },
       "Pagamento": {
         "type": "object",
+        "required": [
+          "pagamento_id",
+          "pedido_id",
+          "tipo",
+          "forma",
+          "valor",
+          "status",
+          "transacao_gateway",
+          "motivo_recusa"
+        ],
         "properties": {
           "pagamento_id": {
             "type": "integer"
@@ -2286,6 +2382,11 @@
       },
       "Cobranca": {
         "type": "object",
+        "required": [
+          "transacao_id",
+          "referencia",
+          "status"
+        ],
         "properties": {
           "transacao_id": {
             "type": "string",
@@ -2307,6 +2408,13 @@
       },
       "MovimentacaoPontos": {
         "type": "object",
+        "required": [
+          "id",
+          "pedido_id",
+          "tipo",
+          "pontos",
+          "criado_em"
+        ],
         "properties": {
           "id": {
             "type": "integer"
@@ -2349,6 +2457,14 @@
       },
       "Consentimento": {
         "type": "object",
+        "required": [
+          "id",
+          "finalidade",
+          "versao_termo",
+          "autorizado_responsavel",
+          "concedido_em",
+          "revogado_em"
+        ],
         "properties": {
           "id": {
             "type": "integer"

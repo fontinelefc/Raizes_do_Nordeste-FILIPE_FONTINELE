@@ -550,6 +550,7 @@ paths:
             application/json:
               schema:
                 type: object
+                required: [status, banco]
                 properties:
                   status: { type: string, example: ok }
                   banco: { type: string, example: ok }
@@ -785,17 +786,17 @@ components:
       additionalProperties: false
       required: [email, senha, tipo]
       properties:
-        email: { type: string, format: email, maxLength: 150 }
+        email: { type: string, format: email, maxLength: 150, pattern: '^[^@\s]+@[^@\s]+\.[^@\s]+$' }
         senha: { type: string, minLength: 8, maxLength: 72 }
         tipo: { type: string, enum: [FUNCIONARIO, CLIENTE] }
     Token:
       type: object
-      required: [access_token, token_type, expira_em]
+      required: [access_token, token_type, expira_em, perfil, unidade_id]
       properties:
         access_token: { type: string }
         token_type: { type: string, example: bearer }
         expira_em: { $ref: '#/components/schemas/DataHora' }
-        perfil: { $ref: '#/components/schemas/Perfil' }
+        perfil: { allOf: [ { $ref: '#/components/schemas/Perfil' } ], nullable: true, description: Só para FUNCIONARIO }
         unidade_id: { type: integer, nullable: true }
 
     ClienteEntrada:
@@ -804,18 +805,19 @@ components:
       required: [nome, email, senha]
       properties:
         nome: { type: string, minLength: 2, maxLength: 100 }
-        email: { type: string, format: email, maxLength: 150 }
+        email: { type: string, format: email, maxLength: 150, pattern: '^[^@\s]+@[^@\s]+\.[^@\s]+$' }
         telefone: { type: string, maxLength: 20, nullable: true }
         senha: { type: string, minLength: 8, maxLength: 72 }
-        faixa_etaria: { $ref: '#/components/schemas/FaixaEtaria' }
+        faixa_etaria: { allOf: [ { $ref: '#/components/schemas/FaixaEtaria' } ], nullable: true }
     Cliente:
       type: object
+      required: [id, nome, email, telefone, faixa_etaria, saldo_pontos, criado_em]
       properties:
         id: { type: integer }
         nome: { type: string }
         email: { type: string }
         telefone: { type: string, nullable: true }
-        faixa_etaria: { $ref: '#/components/schemas/FaixaEtaria' }
+        faixa_etaria: { allOf: [ { $ref: '#/components/schemas/FaixaEtaria' } ], nullable: true }
         saldo_pontos: { type: integer }
         criado_em: { $ref: '#/components/schemas/DataHora' }
 
@@ -843,6 +845,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/UnidadeEntrada'
         - type: object
+          required: [id, ativa, criado_em]
           properties:
             id: { type: integer }
             ativa: { type: boolean }
@@ -885,6 +888,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/ProdutoEntrada'
         - type: object
+          required: [id, ativo]
           properties:
             id: { type: integer }
             ativo: { type: boolean }
@@ -906,6 +910,7 @@ components:
         disponivel: { type: boolean }
     ItemCardapio:
       type: object
+      required: [produto_id, nome, descricao, categoria, preco, disponivel]
       properties:
         produto_id: { type: integer }
         nome: { type: string }
@@ -916,6 +921,7 @@ components:
 
     Estoque:
       type: object
+      required: [produto_id, quantidade, quantidade_reservada, disponivel, atualizado_em]
       properties:
         produto_id: { type: integer }
         quantidade: { type: integer }
@@ -943,6 +949,7 @@ components:
               quantidade: { type: integer, minimum: 1, maximum: 20 }
     ItemPedido:
       type: object
+      required: [produto_id, nome, quantidade, preco_unitario, subtotal]
       properties:
         produto_id: { type: integer }
         nome: { type: string }
@@ -951,6 +958,7 @@ components:
         subtotal: { $ref: '#/components/schemas/Dinheiro' }
     Pedido:
       type: object
+      required: [id, unidade_id, cliente_id, canal, status, valor_total, expira_em, criado_em, itens, token_pedido]
       properties:
         id: { type: integer }
         unidade_id: { type: integer }
@@ -965,16 +973,19 @@ components:
           items: { $ref: '#/components/schemas/ItemPedido' }
         token_pedido:
           type: string
-          description: Só em pedido anônimo (D46)
+          nullable: true
+          description: Só em pedido anônimo (D46); null nos demais
     PedidoDetalhe:
       allOf:
         - $ref: '#/components/schemas/Pedido'
         - type: object
+          required: [historico, pagamento]
           properties:
             historico:
               type: array
               items:
                 type: object
+                required: [status, origem, em]
                 properties:
                   status: { $ref: '#/components/schemas/StatusPedido' }
                   origem: { $ref: '#/components/schemas/OrigemAcao' }
@@ -993,6 +1004,7 @@ components:
 
     Pagamento:
       type: object
+      required: [pagamento_id, pedido_id, tipo, forma, valor, status, transacao_gateway, motivo_recusa]
       properties:
         pagamento_id: { type: integer }
         pedido_id: { type: integer }
@@ -1020,6 +1032,7 @@ components:
         ocorrido_em: { $ref: '#/components/schemas/DataHora' }
     Cobranca:
       type: object
+      required: [transacao_id, referencia, status]
       properties:
         transacao_id: { type: string, example: sim_8f3a2c }
         referencia: { type: string }
@@ -1027,6 +1040,7 @@ components:
 
     MovimentacaoPontos:
       type: object
+      required: [id, pedido_id, tipo, pontos, criado_em]
       properties:
         id: { type: integer }
         pedido_id: { type: integer, nullable: true }
@@ -1043,6 +1057,7 @@ components:
         autorizado_responsavel: { type: boolean, default: false }
     Consentimento:
       type: object
+      required: [id, finalidade, versao_termo, autorizado_responsavel, concedido_em, revogado_em]
       properties:
         id: { type: integer }
         finalidade: { $ref: '#/components/schemas/Finalidade' }

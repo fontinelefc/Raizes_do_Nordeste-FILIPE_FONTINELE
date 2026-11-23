@@ -21,6 +21,10 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 CABECALHO_REQUEST_ID = "X-Request-ID"
 
+# Todo 503 diz ao canal quando tentar de novo (contrato, resposta Indisponivel; E17).
+# Valor fixo, sem variável no .env: o gateway e o banco voltam em segundos ou não voltam logo
+RETRY_AFTER_SEGUNDOS = 10
+
 log = logging.getLogger("raizes")
 
 STATUS_POR_CODIGO: dict[str, int] = {
@@ -78,9 +82,15 @@ def _corpo(request: Request, codigo: str, mensagem: str, detalhes: list[dict]) -
     return {"erro": erro}
 
 
+def _cabecalhos(status: int) -> dict[str, str] | None:
+    return {"Retry-After": str(RETRY_AFTER_SEGUNDOS)} if status == 503 else None
+
+
 async def _tratar_dominio(request: Request, exc: ErroDominio) -> JSONResponse:
     status = STATUS_POR_CODIGO.get(exc.codigo, 500)
-    return JSONResponse(_corpo(request, exc.codigo, exc.mensagem, exc.detalhes), status_code=status)
+    return JSONResponse(
+        _corpo(request, exc.codigo, exc.mensagem, exc.detalhes), status_code=status, headers=_cabecalhos(status)
+    )
 
 
 async def _tratar_validacao(request: Request, exc: RequestValidationError) -> JSONResponse:
@@ -110,7 +120,9 @@ async def _tratar_banco(request: Request, exc: DBAPIError) -> JSONResponse:
     if exc.connection_invalidated or _falha_de_conexao(exc):
         log.error("banco indisponível request_id=%s: %s", request.state.request_id, exc.orig)
         return JSONResponse(
-            _corpo(request, "BANCO_INDISPONIVEL", "Banco de dados indisponível", []), status_code=503
+            _corpo(request, "BANCO_INDISPONIVEL", "Banco de dados indisponível", []),
+            status_code=503,
+            headers=_cabecalhos(503),
         )
     return await _tratar_inesperado(request, exc)
 

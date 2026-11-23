@@ -18,7 +18,7 @@ router = APIRouter(tags=["Estoque"])
     "/unidades/{id}/estoque",
     summary="Consultar estoque da unidade — GERENTE da unidade, MATRIZ (RF15)",
     response_model=ListaEstoque,
-    responses=respostas_erro(401, 403, 404),
+    responses=respostas_erro(401, 403, 404, 422),
 )
 def consultar_estoque(
     id: Id, ator: MATRIZ_OU_GERENTE, sessao: Sessao, limit: Limit = 20, offset: Offset = 0

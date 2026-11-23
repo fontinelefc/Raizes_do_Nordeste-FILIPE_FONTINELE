@@ -33,7 +33,7 @@ def dados_cliente(ator: SO_CLIENTE, ip: IP, sessao: Sessao) -> Cliente:
     "/clientes/me/pontos",
     summary="Extrato de pontos — CLIENTE (RF17, UC08)",
     response_model=ListaMovimentacoes,
-    responses=respostas_erro(401),
+    responses=respostas_erro(401, 422),
 )
 def extrato_pontos(ator: SO_CLIENTE, sessao: Sessao, limit: Limit = 20, offset: Offset = 0) -> ListaMovimentacoes:
     return FidelidadeService(sessao).extrato(ator, limit, offset)
@@ -66,7 +66,7 @@ def conceder_consentimento(dados: ConsentimentoEntrada, ator: SO_CLIENTE, ip: IP
     status_code=status.HTTP_204_NO_CONTENT,
     response_class=Response,
     response_description="Consentimento revogado (revogado_em preenchido)",
-    responses=respostas_erro(401, 404),
+    responses=respostas_erro(401, 404, 422),
 )
 def revogar_consentimento(finalidade: Finalidade, ator: SO_CLIENTE, ip: IP, sessao: Sessao) -> Response:
     FidelidadeService(sessao).revogar_consentimento(ator, finalidade, ip)

@@ -31,6 +31,7 @@ router = APIRouter(tags=["Unidades e catálogo"])
     "/unidades",
     summary="Listar unidades ativas (RF03, RF08, UC01)",
     response_model=ListaUnidades,
+    responses=respostas_erro(422),
 )
 def listar_unidades(sessao: Sessao, limit: Limit = 20, offset: Offset = 0) -> ListaUnidades:
     return UnidadeService(sessao).listar_unidades(limit, offset)
@@ -61,7 +62,7 @@ def alterar_unidade(id: Id, dados: UnidadeAlteracao, ator: SO_MATRIZ, ip: IP, se
     "/produtos",
     summary="Listar catálogo padrão — MATRIZ, GERENTE (RF04)",
     response_model=ListaProdutos,
-    responses=respostas_erro(401, 403),
+    responses=respostas_erro(401, 403, 422),
 )
 def listar_produtos(
     ator: MATRIZ_OU_GERENTE, sessao: Sessao, limit: Limit = 20, offset: Offset = 0
@@ -94,7 +95,7 @@ def alterar_produto(id: Id, dados: ProdutoAlteracao, ator: SO_MATRIZ, ip: IP, se
     "/unidades/{id}/cardapio",
     summary="Consultar cardápio vigente da unidade (RF08, UC01)",
     response_model=ListaItensCardapio,
-    responses=respostas_erro(404),
+    responses=respostas_erro(404, 422),
 )
 def consultar_cardapio(id: Id, sessao: Sessao) -> ListaItensCardapio:
     return UnidadeService(sessao).consultar_cardapio(id)

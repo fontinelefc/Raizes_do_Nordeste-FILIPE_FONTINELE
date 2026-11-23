@@ -15,7 +15,7 @@ from app.controllers.parametros import IP, TOKEN, TOKEN_OPCIONAL, Id, Limit, Off
 from app.models.enums import StatusPedido
 from app.nucleo.banco import abrir_sessao
 from app.services.pedidos import PedidoService
-from app.views.comum import respostas_erro
+from app.views.comum import CABECALHO_LOCATION, respostas_erro
 from app.views.pedidos import (
     CancelamentoEntrada,
     ListaPedidos,
@@ -44,7 +44,7 @@ def _service(request: Request, sessao: Sessao) -> PedidoService:
     ),
     status_code=status.HTTP_201_CREATED,
     response_model=Pedido,
-    responses=respostas_erro(401, 403, 404, 409, 422),
+    responses={201: {"headers": CABECALHO_LOCATION}, **respostas_erro(401, 403, 404, 409, 422)},
 )
 def criar_pedido(
     dados: PedidoEntrada, ator: TOKEN_OPCIONAL, request: Request, response: Response, sessao: Sessao
@@ -58,7 +58,7 @@ def criar_pedido(
     "/pedidos/{id}",
     summary="Consultar pedido e histórico de status (RF10, UC10)",
     response_model=PedidoDetalhe,
-    responses=respostas_erro(401, 404),
+    responses=respostas_erro(401, 404, 422),
 )
 def consultar_pedido(id: Id, ator: TOKEN, request: Request, sessao: Sessao) -> PedidoDetalhe:
     return _service(request, sessao).consultar(ator, id)
@@ -68,7 +68,7 @@ def consultar_pedido(id: Id, ator: TOKEN, request: Request, sessao: Sessao) -> P
     "/unidades/{id}/pedidos",
     summary="Painel de pedidos da unidade — funcionário da unidade, MATRIZ (RF10, RF11, UC11)",
     response_model=ListaPedidos,
-    responses=respostas_erro(401, 403, 404),
+    responses=respostas_erro(401, 403, 404, 422),
 )
 def painel_pedidos(
     id: Id,

@@ -1,9 +1,11 @@
 """Views do domínio Unidades e catálogo (RF03–RF05, RF08)."""
 
+from typing import Annotated
+
 from pydantic import Field
 
 from app.models.enums import TipoOperacao
-from app.views.comum import DataHora, Dinheiro, Entrada, Saida
+from app.views.comum import DataHora, Dinheiro, Entrada, Saida, SemNulo
 
 # ---- Unidades ----
 
@@ -17,11 +19,12 @@ class UnidadeEntrada(Entrada):
 
 
 class UnidadeAlteracao(Entrada):
-    nome: str | None = Field(default=None, max_length=100)
-    tipo_operacao: TipoOperacao | None = None
-    horario_abertura: str | None = None
-    horario_fechamento: str | None = None
-    ativa: bool | None = None
+    # Campos opcionais que não aceitam null (o service recusa; E17)
+    nome: Annotated[str, Field(max_length=100)] | SemNulo = None
+    tipo_operacao: TipoOperacao | SemNulo = None
+    horario_abertura: str | SemNulo = None
+    horario_fechamento: str | SemNulo = None
+    ativa: bool | SemNulo = None
 
 
 class Unidade(UnidadeEntrada):
@@ -49,14 +52,15 @@ class ProdutoEntrada(Entrada):
 
 
 class ProdutoAlteracao(Entrada):
-    nome: str | None = Field(default=None, max_length=100)
+    # Só a descrição aceita null (apaga o texto); os demais o service recusa (E17)
+    nome: Annotated[str, Field(max_length=100)] | SemNulo = None
     descricao: str | None = Field(default=None, max_length=255)
-    categoria: str | None = Field(default=None, max_length=50)
-    preco_base: Dinheiro | None = None
-    preco_minimo: Dinheiro | None = None
-    preco_maximo: Dinheiro | None = None
-    exige_cozinha_completa: bool | None = None
-    ativo: bool | None = None
+    categoria: Annotated[str, Field(max_length=50)] | SemNulo = None
+    preco_base: Dinheiro | SemNulo = None
+    preco_minimo: Dinheiro | SemNulo = None
+    preco_maximo: Dinheiro | SemNulo = None
+    exige_cozinha_completa: bool | SemNulo = None
+    ativo: bool | SemNulo = None
 
 
 class Produto(ProdutoEntrada):

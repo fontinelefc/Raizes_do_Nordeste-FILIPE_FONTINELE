@@ -52,6 +52,7 @@ def criar_cobranca(dados: CobrancaEntrada, request: Request, response: Response)
     "/cobrancas/{transacao_id}/resultado",
     summary="Decidir a cobrança e disparar o webhook (uso em testes)",
     status_code=status.HTTP_202_ACCEPTED,
+    response_class=Response,
     response_description="Webhook agendado",
     responses=respostas_erro(401, 404, 409, 422),
 )
@@ -66,8 +67,9 @@ def decidir_cobranca(
     "/estornos",
     summary="Solicitar estorno; o resultado chega como refund.completed (UC13)",
     status_code=status.HTTP_202_ACCEPTED,
+    response_class=Response,
     response_description="Estorno aceito",
-    responses=respostas_erro(401, 404, 409),
+    responses=respostas_erro(401, 404, 409, 422),
 )
 def solicitar_estorno(dados: EstornoEntrada, request: Request, sessao: Sessao, tarefas: BackgroundTasks) -> None:
     evento = _gateway(request).estornar(dados.transacao_id)
